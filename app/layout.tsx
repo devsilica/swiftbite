@@ -25,13 +25,13 @@ export default function RootLayout({
 
   return (
     <html lang="en">
-      <body className="bg-[#fafafa] text-black">
+     <body className="bg-[#fafafa] text-black">
 
-        <Navbar />
+        {!hideLayout && <Navbar />}
 
         {children}
 
-        <SiteFooter />
+        {!hideLayout && <SiteFooter />}
 
       </body>
     </html>
