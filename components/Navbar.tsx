@@ -1,6 +1,11 @@
+"use client"
+
 import Link from "next/link"
+import { useState } from "react"
 
 export default function Navbar() {
+
+  const [open, setOpen] = useState(false)
 
   return (
 
@@ -17,9 +22,9 @@ export default function Navbar() {
           Swift<span className="text-orange-600">Bite</span>
         </Link>
 
-        {/* Navigation */}
+        {/* Desktop Navigation */}
 
-        <nav className="flex items-center gap-8 text-sm font-medium">
+        <nav className="hidden md:flex items-center gap-8 text-sm font-medium">
 
           <Link
             href="/menu"
@@ -37,7 +42,7 @@ export default function Navbar() {
             <span className="absolute left-0 -bottom-1 h-[2px] w-0 bg-orange-600 transition-all group-hover:w-full"></span>
           </Link>
 
-          {/* Cart Button */}
+          {/* Cart */}
 
           <Link
             href="/cart"
@@ -48,10 +53,62 @@ export default function Navbar() {
 
         </nav>
 
+
+        {/* Mobile Menu Button */}
+
+        <button
+          onClick={() => setOpen(!open)}
+          className="md:hidden flex items-center"
+        >
+          <div className="space-y-1">
+            <span className="block w-6 h-[2px] bg-black"></span>
+            <span className="block w-6 h-[2px] bg-black"></span>
+            <span className="block w-6 h-[2px] bg-black"></span>
+          </div>
+        </button>
+
       </div>
+
+
+      {/* Mobile Menu */}
+
+      {open && (
+
+        <div className="md:hidden bg-white border-t border-gray-100">
+
+          <div className="px-6 py-4 flex flex-col gap-4 text-sm font-medium">
+
+            <Link
+              href="/menu"
+              onClick={() => setOpen(false)}
+              className="text-gray-700 hover:text-black"
+            >
+              Menu
+            </Link>
+
+            <Link
+              href="/track"
+              onClick={() => setOpen(false)}
+              className="text-gray-700 hover:text-black"
+            >
+              Track Order
+            </Link>
+
+            <Link
+              href="/cart"
+              onClick={() => setOpen(false)}
+              className="bg-orange-600 text-white text-center px-4 py-2 rounded-lg font-semibold hover:bg-orange-500 transition"
+            >
+              🛒 Cart
+            </Link>
+
+          </div>
+
+        </div>
+
+      )}
 
     </header>
 
   )
-
 }
