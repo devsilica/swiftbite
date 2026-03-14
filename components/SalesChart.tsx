@@ -13,9 +13,14 @@ import {
 } from "recharts"
 import { formatNaira } from "@/lib/format"
 
+type ChartRow = {
+  date: string
+  revenue: number
+}
+
 export default function SalesChart() {
 
-  const [data, setData] = useState<any[]>([])
+  const [data, setData] = useState<ChartRow[]>([])
 
   async function loadSales() {
 
@@ -70,11 +75,11 @@ export default function SalesChart() {
           <XAxis dataKey="date" />
 
           <YAxis
-            tickFormatter={(v) => formatNaira(v)}
+            tickFormatter={(v) => formatNaira(Number(v))}
           />
 
           <Tooltip
-            formatter={(v: number) => formatNaira(v)}
+            formatter={(value) => formatNaira(Number(value))}
           />
 
           <Line

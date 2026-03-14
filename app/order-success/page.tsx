@@ -1,10 +1,12 @@
 "use client";
 
+import { Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { formatNaira } from "@/lib/format";
 
-export default function OrderSuccessPage() {
+function OrderSuccessContent() {
+
   const searchParams = useSearchParams();
 
   const orderId = searchParams.get("order");
@@ -23,35 +25,24 @@ A customer has placed a new order.
 Please confirm payment and delivery details.
 `;
 
-  const whatsappLink = `https://wa.me/${restaurantPhone}?text=${encodeURIComponent(
-    message
-  )}`;
+  const whatsappLink = `https://wa.me/${restaurantPhone}?text=${encodeURIComponent(message)}`;
 
   return (
     <main className="min-h-screen bg-[#fafafa] flex items-center justify-center px-6">
 
       <div className="w-full max-w-md bg-white rounded-2xl shadow-lg border border-gray-100 p-10 text-center">
 
-        {/* Success Icon */}
-
         <div className="w-20 h-20 mx-auto rounded-full bg-orange-100 flex items-center justify-center text-3xl">
           🎉
         </div>
 
-        {/* Title */}
-
         <h1 className="text-3xl font-bold mt-8 leading-tight">
-          Order placed{" "}
-          <span className="text-orange-600">successfully</span>
+          Order placed <span className="text-orange-600">successfully</span>
         </h1>
-
-        {/* Subtitle */}
 
         <p className="text-gray-500 mt-3 text-sm">
           Your order has been received and is being processed.
         </p>
-
-        {/* Primary Button */}
 
         {orderId && (
           <Link
@@ -61,8 +52,6 @@ Please confirm payment and delivery details.
             Track Order
           </Link>
         )}
-
-        {/* Order Info */}
 
         <div className="mt-6 bg-gray-50 rounded-xl p-4 text-sm text-gray-700 space-y-2">
 
@@ -81,16 +70,12 @@ Please confirm payment and delivery details.
 
         </div>
 
-        {/* WhatsApp Note */}
-
         <p className="mt-6 text-gray-500 text-sm">
           Continue the order conversation on{" "}
           <span className="text-orange-600 font-medium">
             WhatsApp
           </span>.
         </p>
-
-        {/* Actions */}
 
         <div className="mt-6 space-y-3">
 
@@ -115,5 +100,13 @@ Please confirm payment and delivery details.
       </div>
 
     </main>
+  );
+}
+
+export default function OrderSuccessPage() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <OrderSuccessContent />
+    </Suspense>
   );
 }

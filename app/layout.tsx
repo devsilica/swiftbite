@@ -15,12 +15,6 @@ export const metadata = {
     shortcut: "/SB.png",
     apple: "/SB.png",
   },
-
-  openGraph: {
-    title: "SwiftBite",
-    description: "Order delicious meals instantly",
-    images: ["/SB.png"],
-  },
 }
 
 export default function RootLayout({
