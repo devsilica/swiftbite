@@ -27,8 +27,6 @@ export default function RootLayout({
     <html lang="en">
       <body className="bg-[#fafafa] text-black">
 
-        <Script src="/markly.js" strategy="afterInteractive" />
-
         <Navbar />
 
         {children}
