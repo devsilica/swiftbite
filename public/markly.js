@@ -68,6 +68,3 @@ document.addEventListener(
   },
   true // 👈 🔥 THIS IS THE MAGIC
 );
-
-  document.body.appendChild(container);
-});
