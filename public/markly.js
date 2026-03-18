@@ -54,8 +54,8 @@ document.addEventListener(
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          apikey: "YOUR_KEY",
-          Authorization: "Bearer YOUR_KEY",
+          apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InB3ZnBwdmhpaHh1cGdqcWdmZWp1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM3ODA4NjIsImV4cCI6MjA4OTM1Njg2Mn0.OnggvjWn4wGKSy7loVamYzDNcGhcUlHQ3o-pHX65k8E",
+          Authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InB3ZnBwdmhpaHh1cGdqcWdmZWp1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM3ODA4NjIsImV4cCI6MjA4OTM1Njg2Mn0.OnggvjWn4wGKSy7loVamYzDNcGhcUlHQ3o-pHX65k8E",
         },
         body: JSON.stringify(data),
       });
