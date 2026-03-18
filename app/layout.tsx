@@ -1,7 +1,7 @@
 import "./globals.css"
 import SiteFooter from "@/components/SiteFooter"
 import Navbar from "@/components/Navbar"
-import Script from "next/script";
+
 
 export const metadata = {
   title: "SwiftBite",
