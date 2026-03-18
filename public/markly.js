@@ -1,10 +1,8 @@
 document.addEventListener(
   "click",
   (e) => {
-    // ❌ REMOVE THIS LINE
-    // e.preventDefault();
-
-    // ✅ KEEP THIS
+    // 🔥 stop normal behavior FIRST
+    e.preventDefault();
     e.stopPropagation();
 
     if (e.target.closest("#markly-box")) return;
@@ -24,7 +22,7 @@ document.addEventListener(
     container.style.padding = "10px";
     container.style.border = "1px solid #ccc";
     container.style.borderRadius = "6px";
-    container.style.zIndex = "999999"; // 🔥 increase this
+    container.style.zIndex = "9999";
 
     const textarea = document.createElement("textarea");
     textarea.placeholder = "Leave feedback...";
@@ -68,5 +66,5 @@ document.addEventListener(
     container.appendChild(button);
     document.body.appendChild(container);
   },
-  true
+  true // 👈 🔥 THIS IS THE MAGIC
 );
