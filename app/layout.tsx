@@ -1,6 +1,7 @@
 import "./globals.css"
 import SiteFooter from "@/components/SiteFooter"
 import Navbar from "@/components/Navbar"
+import Script from "next/script";
 
 export const metadata = {
   title: "SwiftBite",
@@ -17,21 +18,20 @@ export const metadata = {
   },
 }
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default function RootLayout({ children }) {
 
   return (
     <html lang="en">
-     <body className="bg-[#fafafa] text-black">
+      <body className="bg-[#fafafa] text-black">
 
-        {!hideLayout && <Navbar />}
+        {/* 🔥 ADD THIS LINE */}
+        <Script src="/markly.js" strategy="afterInteractive" />
+
+        <Navbar />
 
         {children}
 
-        {!hideLayout && <SiteFooter />}
+        <SiteFooter />
 
       </body>
     </html>
