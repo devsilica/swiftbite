@@ -1,8 +1,10 @@
 document.addEventListener(
   "click",
   (e) => {
-    // 🔥 stop normal behavior FIRST
-    e.preventDefault();
+    // ❌ REMOVE THIS LINE
+    // e.preventDefault();
+
+    // ✅ KEEP THIS
     e.stopPropagation();
 
     if (e.target.closest("#markly-box")) return;
@@ -22,7 +24,7 @@ document.addEventListener(
     container.style.padding = "10px";
     container.style.border = "1px solid #ccc";
     container.style.borderRadius = "6px";
-    container.style.zIndex = "9999";
+    container.style.zIndex = "999999"; // 🔥 increase this
 
     const textarea = document.createElement("textarea");
     textarea.placeholder = "Leave feedback...";
@@ -52,8 +54,8 @@ document.addEventListener(
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InB3ZnBwdmhpaHh1cGdqcWdmZWp1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM3ODA4NjIsImV4cCI6MjA4OTM1Njg2Mn0.OnggvjWn4wGKSy7loVamYzDNcGhcUlHQ3o-pHX65k8E",
-          Authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InB3ZnBwdmhpaHh1cGdqcWdmZWp1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM3ODA4NjIsImV4cCI6MjA4OTM1Njg2Mn0.OnggvjWn4wGKSy7loVamYzDNcGhcUlHQ3o-pHX65k8E",
+          apikey: "YOUR_KEY",
+          Authorization: "Bearer YOUR_KEY",
         },
         body: JSON.stringify(data),
       });
@@ -66,5 +68,5 @@ document.addEventListener(
     container.appendChild(button);
     document.body.appendChild(container);
   },
-  true // 👈 🔥 THIS IS THE MAGIC
+  true
 );
