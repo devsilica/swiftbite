@@ -98,8 +98,8 @@ swiftbite/
 
 ├── app/
 │   ├── menu/
-│   ├── orders/
-│   └── dashboard/
+│   ├── cart/
+│   └── admin/
 
 ├── components/
 │   ├── FoodCard.tsx
